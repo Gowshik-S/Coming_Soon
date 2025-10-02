@@ -10,6 +10,11 @@ const hoursElement = document.getElementById('hours');
 const minutesElement = document.getElementById('minutes');
 const secondsElement = document.getElementById('seconds');
 
+// Set launch date (30 days from now - you can change this)
+const launchDate = new Date();
+launchDate.setDate(launchDate.getDate() + 30);
+launchDate.setHours(12, 0, 0, 0); // Set to noon
+
 // Page Loading
 window.addEventListener('load', () => {
     setTimeout(() => {
@@ -45,11 +50,6 @@ function initializeAnimations() {
 
 // Countdown Timer
 function updateCountdown() {
-    // Set launch date (30 days from now - you can change this)
-    const launchDate = new Date();
-    launchDate.setDate(launchDate.getDate() + 30);
-    launchDate.setHours(12, 0, 0, 0); // Set to noon
-    
     const now = new Date().getTime();
     const distance = launchDate.getTime() - now;
 

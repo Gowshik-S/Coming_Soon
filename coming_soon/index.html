@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vortex Infinite - Coming Soon</title>
+    <meta name="description" content="Vortex Infinite is coming soon. Be the first to know when we launch!" />
+    <meta name="author" content="Vortex Infinite" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <meta property="og:title" content="Vortex Infinite - Coming Soon" />
+    <meta property="og:description" content="Something amazing is coming. Stay tuned!" />
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Vortex Infinite - Coming Soon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+      <div class="loading-spinner">
+        <div class="spinner-ring"></div>
+        <div class="loading-text">Loading...</div>
+      </div>
+    </div>
+
+    <!-- Animated Background -->
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+
+    <main>
+      <div class="container">
+        <div class="content">
+          <!-- Logo Section -->
+          <div class="logo-section">
+            <h1 class="logo" id="logo">
+              <span>Vortex</span><span class="logo-accent">Infinite</span>
+            </h1>
+            <p class="tagline">Innovation Unleashed</p>
+          </div>
+
+          <!-- Coming Soon Section -->
+          <div class="coming-soon">
+            <h2>Something Amazing is Coming</h2>
+            <p class="description">
+              We're building the next generation of digital solutions. 
+              Get ready for an experience that will revolutionize your workflow.
+            </p>
+          </div>
+
+          <!-- Countdown Section -->
+          <div class="countdown-section">
+            <h3 class="countdown-title">Launch in</h3>
+            <div class="countdown-timer">
+              <div class="time-unit">
+                <span class="time-value" id="days">00</span>
+                <span class="time-label">Days</span>
+              </div>
+              <div class="time-unit">
+                <span class="time-value" id="hours">00</span>
+                <span class="time-label">Hours</span>
+              </div>
+              <div class="time-unit">
+                <span class="time-value" id="minutes">00</span>
+                <span class="time-label">Minutes</span>
+              </div>
+              <div class="time-unit">
+                <span class="time-value" id="seconds">00</span>
+                <span class="time-label">Seconds</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Features Section -->
+          <div class="features-section">
+            <h3 style="color: var(--text-primary); font-size: 1.8rem; margin-bottom: 40px; font-family: 'Poppins', 'Inter', sans-serif; font-weight: 600;">What's Coming</h3>
+            <div class="feature-grid">
+              <div class="feature-item">
+                <i class="fas fa-rocket"></i>
+                <h3>Lightning Fast</h3>
+                <p>Experience unprecedented speed with our optimized infrastructure designed for performance.</p>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Secure & Reliable</h3>
+                <p>Your data is protected with enterprise-grade security and 99.9% uptime guarantee.</p>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-cogs"></i>
+                <h3>Highly Customizable</h3>
+                <p>Tailor every aspect to your needs with our powerful customization engine.</p>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-headset"></i>
+                <h3>24/7 Support</h3>
+                <p>Our dedicated team is always available to help you succeed.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Section -->
+          <div class="contact-section">
+            <h3 class="contact-title">Get in Touch</h3>
+            <div class="contact-grid">
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-info">
+                  <h4>Email</h4>
+                  <a href="mailto:contact@vortexinfinite.xyz">contact@vortexinfinite.xyz</a>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div class="contact-info">
+                  <h4>Phone</h4>
+                  <a href="tel:+918270288569">+91 8270 288569</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Email Notification Form -->
+            <div class="notify-section">
+              <h3 class="notify-title">Be the first to know when we launch</h3>
+              <form class="notify-form" id="notifyForm">
+                <input 
+                  type="email" 
+                  id="emailInput" 
+                  placeholder="Enter your email address" 
+                  required
+                />
+                <button type="submit" id="notifyBtn">
+                  <i class="fas fa-bell"></i> Notify Me
+                </button>
+              </form>
+              <div class="success-message" id="successMessage">
+                <i class="fas fa-check-circle"></i>
+                <span>Thanks! You'll be notified when we launch.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Section -->
+          <div class="social-section">
+            <h3 class="social-title">Follow Us</h3>
+            <div class="social-icons">
+              <a href="#" class="social-link" data-platform="github">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="#" class="social-link" data-platform="linkedin">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="#" class="social-link" data-platform="twitter">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="social-link" data-platform="instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

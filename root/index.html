@@ -331,6 +331,173 @@
         0%, 100% { opacity: 1; }
         50% { opacity: 0.6; }
       }
+
+      /* Announcement Popup */
+      .announcement-popup {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+        z-index: 10000;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease;
+      }
+
+      .announcement-popup.show {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .announcement-card {
+        background: linear-gradient(180deg, #ffffff, #f9f9f9);
+        color: #333333;
+        padding: 22px;
+        border-radius: 14px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        max-width: 520px;
+        width: calc(100% - 40px);
+        position: relative;
+        border: 2px solid #ffc107;
+      }
+
+      .announcement-card h3 {
+        color: #ffc107;
+        margin-bottom: 8px;
+        font-size: 1.15rem;
+        font-weight: bold;
+      }
+
+      .announcement-text {
+        color: #333333;
+        margin-bottom: 14px;
+      }
+
+      .announcement-actions {
+        display: flex;
+        gap: 10px;
+        justify-content: flex-end;
+      }
+
+      .btn {
+        padding: 8px 14px;
+        border-radius: 8px;
+        border: 1px solid transparent;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 600;
+      }
+
+      .btn-primary {
+        background: linear-gradient(90deg, #ffc107, #ffb300);
+        color: #333333;
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: #333333;
+        border: 2px solid #333333;
+      }
+
+      .announcement-close {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background: transparent;
+        border: none;
+        color: #ffc107;
+        font-size: 20px;
+        line-height: 1;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      @media (max-width: 480px) {
+        .announcement-card {
+          padding: 16px;
+          border-radius: 12px;
+        }
+        .announcement-actions {
+          justify-content: stretch;
+          flex-direction: column-reverse;
+        }
+        .btn {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+
+      /* Floating Demo Button */
+      .floating-demo-btn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(90deg, #ffc107, #ffb300);
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        z-index: 999;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        font-size: 14px;
+        font-weight: bold;
+        color: #333333;
+        text-decoration: none;
+      }
+
+      .floating-demo-btn.show {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .floating-demo-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      }
+
+      /* Floating Demo Label */
+      .floating-demo-label {
+        position: fixed;
+        bottom: 95px;
+        right: 44px;
+        font-size: 12px;
+        font-weight: bold;
+        color: black;
+        z-index: 998;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+
+      .floating-demo-label.show {
+        opacity: 1;
+      }
+
+      @media (max-width: 768px) {
+        .floating-demo-btn {
+          bottom: 20px;
+          right: 20px;
+          width: 55px;
+          height: 55px;
+          font-size: 12px;
+        }
+        .floating-demo-label {
+          right: 20px;
+          bottom: 80px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -363,7 +530,7 @@
           </p>
           <div class="status-container">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="clock-icon"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <span class="status-text">Expected uptime: Within a few hours</span>
+            <span class="status-text">Expected uptime: Soon</span>
           </div>
           <div class="contact-section">
             <p class="contact-prompt">Need immediate assistance? Contact us:</p>
@@ -401,14 +568,61 @@
     <div id="announcementPopup" class="announcement-popup" aria-hidden="true">
       <div class="announcement-card" role="dialog" aria-modal="true" aria-labelledby="announcementTitle">
         <button id="announcementClose" class="announcement-close" aria-label="Close announcement">×</button>
-        <h3 id="announcementTitle">OUR Smart India Hackathon MVP Demo is launched</h3>
-        <p class="announcement-text">Check it out at the link below.</p>
+        <h3 id="announcementTitle">Our Smart India Hackathon 2025 - MVP Demo is launched</h3>
+        <p class="announcement-text">Check it out</p>
         <div class="announcement-actions">
-          <a href="https://sih.vortexinfinite.xyz/" id="announcementView" class="btn btn-primary">View Demo</a>
-          <button id="announcementDismiss" class="btn btn-secondary">Don't show again</button>
+          <a href="https://sih.vortexinfinite.xyz/" target="_blank" rel="noopener" id="announcementView" class="btn btn-primary">View Demo</a>
         </div>
       </div>
     </div>
-    <script src="./script.js" defer></script>
-  </body>
-</html>
+
+    <!-- Floating Demo Button -->
+    <a href="https://sih.vortexinfinite.xyz/" target="_blank" rel="noopener" id="floatingDemoBtn" class="floating-demo-btn" aria-label="View SIH Demo">
+      <img src="../sih logo.webp" alt="SIH Demo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 50%;">
+    </a>
+    <div id="floatingDemoLabel" class="floating-demo-label">SIH 25</div>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Announcement popup initialization
+      try {
+        const popup = document.getElementById('announcementPopup');
+        const closeBtn = document.getElementById('announcementClose');
+        const floatingBtn = document.getElementById('floatingDemoBtn');
+        const floatingLabel = document.getElementById('floatingDemoLabel');
+
+        function showAnnouncement() {
+          if (!popup) return;
+          popup.classList.add('show');
+          popup.setAttribute('aria-hidden', 'false');
+        }
+
+        function hideAnnouncement() {
+          if (!popup) return;
+          popup.classList.remove('show');
+          popup.setAttribute('aria-hidden', 'true');
+          // Show floating button and label after popup is closed
+          if (floatingBtn) {
+            setTimeout(() => {
+              floatingBtn.classList.add('show');
+              if (floatingLabel) floatingLabel.classList.add('show');
+            }, 300);
+          }
+        }
+
+        // Always show popup after delay
+        setTimeout(showAnnouncement, 700);
+
+        closeBtn && closeBtn.addEventListener('click', () => {
+          hideAnnouncement();
+        });
+
+        // Close when clicking outside card
+        popup && popup.addEventListener('click', (e) => {
+          if (e.target === popup) hideAnnouncement();
+        });
+      } catch (err) {
+        console.warn('Announcement popup init failed:', err);
+      }
+    </script>

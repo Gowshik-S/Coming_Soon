@@ -397,5 +397,18 @@
     <script>
       document.getElementById('year').textContent = new Date().getFullYear();
     </script>
+    <!-- Announcement Popup -->
+    <div id="announcementPopup" class="announcement-popup" aria-hidden="true">
+      <div class="announcement-card" role="dialog" aria-modal="true" aria-labelledby="announcementTitle">
+        <button id="announcementClose" class="announcement-close" aria-label="Close announcement">×</button>
+        <h3 id="announcementTitle">OUR Smart India Hackathon MVP Demo is launched</h3>
+        <p class="announcement-text">Check it out at the link below.</p>
+        <div class="announcement-actions">
+          <a href="https://sih.vortexinfinite.xyz/" id="announcementView" class="btn btn-primary">View Demo</a>
+          <button id="announcementDismiss" class="btn btn-secondary">Don't show again</button>
+        </div>
+      </div>
+    </div>
+    <script src="./script.js" defer></script>
   </body>
 </html>

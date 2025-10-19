@@ -382,6 +382,104 @@ body {
     transform: translateX(10px);
 }
 
+/* Announcement Popup */
+.announcement-popup {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(2,6,23,0.6), rgba(2,6,23,0.6));
+    z-index: 10000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.announcement-popup.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.announcement-card {
+    background: linear-gradient(180deg, rgba(17,24,39,1), rgba(10,14,25,1));
+    color: var(--text-secondary);
+    padding: 22px;
+    border-radius: 14px;
+    box-shadow: 0 20px 50px rgba(2,6,23,0.6);
+    max-width: 520px;
+    width: calc(100% - 40px);
+    position: relative;
+    border: 1px solid rgba(255,255,255,0.06);
+    text-align: left;
+}
+
+.announcement-card h3 {
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    font-size: 1.15rem;
+}
+
+.announcement-text {
+    color: var(--text-secondary);
+    margin-bottom: 14px;
+}
+
+.announcement-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.btn {
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    color: white;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid rgba(255,255,255,0.06);
+}
+
+.announcement-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+@media (max-width: 480px) {
+    .announcement-card {
+        padding: 16px;
+        border-radius: 12px;
+    }
+    .announcement-actions {
+        justify-content: stretch;
+        flex-direction: column-reverse;
+    }
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
 .contact-icon {
     width: 60px;
     height: 60px;

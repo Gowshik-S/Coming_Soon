@@ -331,6 +331,50 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
         document.body.style.opacity = '1';
     }, 100);
+    
+    // Announcement popup initialization
+    try {
+        const popup = document.getElementById('announcementPopup');
+        const closeBtn = document.getElementById('announcementClose');
+        const dismissBtn = document.getElementById('announcementDismiss');
+
+        const STORAGE_KEY = 'announcementDismissedV1';
+
+        function showAnnouncement() {
+            if (!popup) return;
+            popup.classList.add('show');
+            popup.setAttribute('aria-hidden', 'false');
+        }
+
+        function hideAnnouncement() {
+            if (!popup) return;
+            popup.classList.remove('show');
+            popup.setAttribute('aria-hidden', 'true');
+        }
+
+        // Only show if not dismissed
+        const dismissed = localStorage.getItem(STORAGE_KEY);
+        if (!dismissed) {
+            // Delay a bit so it doesn't clash with other animations
+            setTimeout(showAnnouncement, 700);
+        }
+
+        closeBtn && closeBtn.addEventListener('click', () => {
+            hideAnnouncement();
+        });
+
+        dismissBtn && dismissBtn.addEventListener('click', () => {
+            localStorage.setItem(STORAGE_KEY, '1');
+            hideAnnouncement();
+        });
+
+        // Close when clicking outside card
+        popup && popup.addEventListener('click', (e) => {
+            if (e.target === popup) hideAnnouncement();
+        });
+    } catch (err) {
+        console.warn('Announcement popup init failed:', err);
+    }
 });
 
 // Console Easter Egg
